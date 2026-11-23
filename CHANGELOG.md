@@ -10,6 +10,8 @@ the notes of the version's GitHub Release.
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-11-23
+
 ### Added
 
 - First version of the HomeWhiz integration: Beko, Grundig, Arçelik,
@@ -32,4 +34,5 @@ the notes of the version's GitHub Release.
   program names, widgets, scene cards and user documentation.
 - `SECURITY.md`, `CLAUDE.md` and third-party notices.
 
-[Unreleased]: https://github.com/gboulvin/gladys-HomeWhiz/commits/main
+[Unreleased]: https://github.com/gboulvin/gladys-HomeWhiz/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/gboulvin/gladys-HomeWhiz/releases/tag/v1.0.0

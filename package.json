@@ -1,6 +1,6 @@
 {
   "name": "gladys-homewhiz",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Gladys Assistant integration for the HomeWhiz appliances (Beko, Grundig, Arçelik, Blomberg, Bauknecht...) over the HomeWhiz cloud.",
   "type": "module",

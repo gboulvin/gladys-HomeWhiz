@@ -8,8 +8,8 @@
     "de": "Beko-, Grundig-, Arçelik-, Blomberg-, Bauknecht-Geräte… der HomeWhiz-App, über WLAN.",
     "es": "Electrodomésticos Beko, Grundig, Arçelik, Blomberg, Bauknecht… de la app HomeWhiz, por Wi-Fi."
   },
-  "version": "0.0.0",
-  "docker_image": "ghcr.io/gboulvin/gladys-homewhiz:0.0.0",
+  "version": "1.0.0",
+  "docker_image": "ghcr.io/gboulvin/gladys-homewhiz:1.0.0",
   "gladys_version": ">=5.1.0",
   "cover_image": "https://raw.githubusercontent.com/gboulvin/gladys-HomeWhiz/main/cover.png",
   "categories": ["appliances", "climate"],
