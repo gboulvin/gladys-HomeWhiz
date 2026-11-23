@@ -1,0 +1,438 @@
+{
+  "manifest_version": 1,
+  "type": "device",
+  "name": "HomeWhiz",
+  "description": {
+    "en": "Beko, Grundig, Arçelik, Blomberg, Bauknecht… appliances of the HomeWhiz app, over Wi-Fi.",
+    "fr": "Électroménager Beko, Grundig, Arçelik, Blomberg, Bauknecht… de l'app HomeWhiz, en Wi-Fi.",
+    "de": "Beko-, Grundig-, Arçelik-, Blomberg-, Bauknecht-Geräte… der HomeWhiz-App, über WLAN.",
+    "es": "Electrodomésticos Beko, Grundig, Arçelik, Blomberg, Bauknecht… de la app HomeWhiz, por Wi-Fi."
+  },
+  "version": "0.0.0",
+  "docker_image": "ghcr.io/gboulvin/gladys-homewhiz:0.0.0",
+  "gladys_version": ">=5.1.0",
+  "cover_image": "https://raw.githubusercontent.com/gboulvin/gladys-HomeWhiz/main/cover.png",
+  "categories": ["appliances", "climate"],
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Connect your HomeWhiz account",
+        "fr": "Connectez votre compte HomeWhiz",
+        "de": "Verbinden Sie Ihr HomeWhiz-Konto",
+        "es": "Conecte su cuenta HomeWhiz"
+      },
+      "description": {
+        "en": "Use the account of the HomeWhiz mobile app (Beko, Grundig, Arçelik, Blomberg, Bauknecht, Elektrabregenz, Altus, Leisure, Flavel, Defy, Lamona, Voltas Beko…). Only the appliances connected over Wi-Fi are supported: Bluetooth-only ones are listed but cannot be reached from Gladys. To control an appliance (start, pause, change the program), enable its remote control on the appliance itself.",
+        "fr": "Utilisez le compte de l'application mobile HomeWhiz (Beko, Grundig, Arçelik, Blomberg, Bauknecht, Elektrabregenz, Altus, Leisure, Flavel, Defy, Lamona, Voltas Beko…). Seuls les appareils connectés en Wi-Fi sont pris en charge : ceux uniquement en Bluetooth sont listés mais restent hors de portée de Gladys. Pour piloter un appareil (démarrer, mettre en pause, changer de programme), activez son contrôle à distance sur l'appareil lui-même.",
+        "de": "Verwenden Sie das Konto der HomeWhiz-App (Beko, Grundig, Arçelik, Blomberg, Bauknecht, Elektrabregenz, Altus, Leisure, Flavel, Defy, Lamona, Voltas Beko…). Nur per WLAN verbundene Geräte werden unterstützt: reine Bluetooth-Geräte werden aufgelistet, sind aber für Gladys nicht erreichbar. Um ein Gerät zu steuern (Start, Pause, Programmwahl), aktivieren Sie die Fernsteuerung am Gerät selbst.",
+        "es": "Utilice la cuenta de la app HomeWhiz (Beko, Grundig, Arçelik, Blomberg, Bauknecht, Elektrabregenz, Altus, Leisure, Flavel, Defy, Lamona, Voltas Beko…). Solo se admiten los aparatos conectados por Wi-Fi: los que solo usan Bluetooth se listan pero Gladys no puede alcanzarlos. Para controlar un aparato (iniciar, pausar, cambiar de programa), active el control remoto en el propio aparato."
+      },
+      "links": [
+        {
+          "url": "https://github.com/gboulvin/gladys-HomeWhiz#readme",
+          "label": {
+            "en": "Supported brands and appliances",
+            "fr": "Marques et appareils pris en charge",
+            "de": "Unterstützte Marken und Geräte",
+            "es": "Marcas y aparatos compatibles"
+          }
+        }
+      ]
+    },
+    {
+      "key": "username",
+      "type": "string",
+      "label": {
+        "en": "HomeWhiz e-mail",
+        "fr": "E-mail HomeWhiz",
+        "de": "HomeWhiz-E-Mail",
+        "es": "Correo HomeWhiz"
+      },
+      "description": {
+        "en": "The e-mail you sign in to the HomeWhiz app with.",
+        "fr": "L'e-mail avec lequel vous vous connectez à l'application HomeWhiz.",
+        "de": "Die E-Mail-Adresse, mit der Sie sich in der HomeWhiz-App anmelden.",
+        "es": "El correo con el que inicia sesión en la app HomeWhiz."
+      },
+      "placeholder": {
+        "en": "e.g. me@example.com",
+        "fr": "ex. moi@exemple.fr",
+        "de": "z. B. ich@beispiel.de",
+        "es": "p. ej. yo@ejemplo.es"
+      },
+      "required": true
+    },
+    {
+      "key": "password",
+      "type": "secret",
+      "label": {
+        "en": "HomeWhiz password",
+        "fr": "Mot de passe HomeWhiz",
+        "de": "HomeWhiz-Passwort",
+        "es": "Contraseña HomeWhiz"
+      },
+      "description": {
+        "en": "Signed up with Google? Set a password with \"Forgot password\" in the HomeWhiz app first.",
+        "fr": "Inscrit avec Google ? Définissez d'abord un mot de passe via « Mot de passe oublié » dans l'app HomeWhiz.",
+        "de": "Mit Google registriert? Legen Sie zuerst über „Passwort vergessen“ in der HomeWhiz-App ein Passwort fest.",
+        "es": "¿Registrado con Google? Defina antes una contraseña con «Olvidé mi contraseña» en la app HomeWhiz."
+      },
+      "required": true
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "label": {
+        "en": "Language of the appliance features",
+        "fr": "Langue des fonctionnalités des appareils",
+        "de": "Sprache der Gerätefunktionen",
+        "es": "Idioma de las funciones de los aparatos"
+      },
+      "description": {
+        "en": "Names of the features and of the programs. Devices already added keep their feature names.",
+        "fr": "Noms des fonctionnalités et des programmes. Les appareils déjà ajoutés gardent leurs noms de fonctionnalités.",
+        "de": "Namen der Funktionen und Programme. Bereits hinzugefügte Geräte behalten ihre Funktionsnamen.",
+        "es": "Nombres de las funciones y de los programas. Los aparatos ya añadidos conservan sus nombres de funciones."
+      },
+      "required": false,
+      "default": "en",
+      "options": [
+        {
+          "value": "en",
+          "label": { "en": "English", "fr": "Anglais", "de": "Englisch", "es": "Inglés" }
+        },
+        {
+          "value": "fr",
+          "label": { "en": "French", "fr": "Français", "de": "Französisch", "es": "Francés" }
+        },
+        {
+          "value": "de",
+          "label": { "en": "German", "fr": "Allemand", "de": "Deutsch", "es": "Alemán" }
+        },
+        {
+          "value": "es",
+          "label": { "en": "Spanish", "fr": "Espagnol", "de": "Spanisch", "es": "Español" }
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "key": "test_connection",
+      "label": {
+        "en": "Test the connection",
+        "fr": "Tester la connexion",
+        "de": "Verbindung testen",
+        "es": "Probar la conexión"
+      },
+      "timeout_seconds": 60
+    },
+    {
+      "key": "refresh_appliances",
+      "label": {
+        "en": "Reload the appliances",
+        "fr": "Recharger les appareils",
+        "de": "Geräte neu laden",
+        "es": "Recargar los aparatos"
+      },
+      "timeout_seconds": 120
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "cycle_started",
+      "label": {
+        "en": "Appliance cycle started",
+        "fr": "Cycle d'un appareil démarré",
+        "de": "Gerätezyklus gestartet",
+        "es": "Ciclo de un aparato iniciado"
+      },
+      "description": {
+        "en": "A washing machine, dryer, dishwasher or oven starts its program.",
+        "fr": "Un lave-linge, sèche-linge, lave-vaisselle ou four démarre son programme.",
+        "de": "Eine Waschmaschine, ein Trockner, Geschirrspüler oder Backofen startet sein Programm.",
+        "es": "Una lavadora, secadora, lavavajillas u horno inicia su programa."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": { "en": "Appliance", "fr": "Appareil", "de": "Gerät", "es": "Aparato" }
+        }
+      ],
+      "variables": [
+        {
+          "key": "program",
+          "type": "string",
+          "label": { "en": "Program", "fr": "Programme", "de": "Programm", "es": "Programa" }
+        }
+      ]
+    },
+    {
+      "key": "cycle_finished",
+      "label": {
+        "en": "Appliance cycle finished",
+        "fr": "Cycle d'un appareil terminé",
+        "de": "Gerätezyklus beendet",
+        "es": "Ciclo de un aparato terminado"
+      },
+      "description": {
+        "en": "The program of a washing machine, dryer, dishwasher or oven is over.",
+        "fr": "Le programme d'un lave-linge, sèche-linge, lave-vaisselle ou four est terminé.",
+        "de": "Das Programm einer Waschmaschine, eines Trockners, Geschirrspülers oder Backofens ist beendet.",
+        "es": "El programa de una lavadora, secadora, lavavajillas u horno ha terminado."
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": { "en": "Appliance", "fr": "Appareil", "de": "Gerät", "es": "Aparato" }
+        }
+      ],
+      "variables": [
+        {
+          "key": "program",
+          "type": "string",
+          "label": { "en": "Program", "fr": "Programme", "de": "Programm", "es": "Programa" }
+        }
+      ]
+    },
+    {
+      "key": "warning_raised",
+      "label": {
+        "en": "Appliance warning",
+        "fr": "Alerte d'un appareil",
+        "de": "Gerätewarnung",
+        "es": "Aviso de un aparato"
+      },
+      "description": {
+        "en": "An appliance raises a warning: door open, no water, no salt, filter to clean…",
+        "fr": "Un appareil lève une alerte : porte ouverte, manque d'eau, de sel, filtre à nettoyer…",
+        "de": "Ein Gerät meldet eine Warnung: Tür offen, kein Wasser, kein Salz, Filter reinigen…",
+        "es": "Un aparato emite un aviso: puerta abierta, sin agua, sin sal, filtro por limpiar…"
+      },
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": { "en": "Appliance", "fr": "Appareil", "de": "Gerät", "es": "Aparato" }
+        }
+      ],
+      "variables": [
+        {
+          "key": "warning",
+          "type": "string",
+          "label": {
+            "en": "Warning code",
+            "fr": "Code de l'alerte",
+            "de": "Warnungscode",
+            "es": "Código del aviso"
+          }
+        },
+        {
+          "key": "warning_label",
+          "type": "string",
+          "label": { "en": "Warning", "fr": "Alerte", "de": "Warnung", "es": "Aviso" }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "start_program",
+      "label": {
+        "en": "Start an appliance program",
+        "fr": "Lancer un programme d'appareil",
+        "de": "Geräteprogramm starten",
+        "es": "Iniciar un programa del aparato"
+      },
+      "description": {
+        "en": "Optionally pick a program and a start delay, then start. Remote control must be enabled on the appliance.",
+        "fr": "Choisit éventuellement un programme et un départ différé, puis démarre. Le contrôle à distance doit être activé sur l'appareil.",
+        "de": "Wählt optional ein Programm und eine Startverzögerung, dann Start. Die Fernsteuerung muss am Gerät aktiviert sein.",
+        "es": "Elige opcionalmente un programa y un inicio diferido, y arranca. El control remoto debe estar activado en el aparato."
+      },
+      "timeout_seconds": 30,
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": { "en": "Appliance", "fr": "Appareil", "de": "Gerät", "es": "Aparato" },
+          "required": true
+        },
+        {
+          "key": "program",
+          "type": "string",
+          "label": {
+            "en": "Program (optional)",
+            "fr": "Programme (facultatif)",
+            "de": "Programm (optional)",
+            "es": "Programa (opcional)"
+          },
+          "description": {
+            "en": "Name of the program as shown in Gladys, e.g. Eco 40-60. Empty: the selected program.",
+            "fr": "Nom du programme tel qu'affiché dans Gladys, ex. Éco 40-60. Vide : le programme sélectionné.",
+            "de": "Name des Programms wie in Gladys angezeigt, z. B. Eco 40-60. Leer: das gewählte Programm.",
+            "es": "Nombre del programa tal y como aparece en Gladys, p. ej. Eco 40-60. Vacío: el programa elegido."
+          },
+          "placeholder": {
+            "en": "e.g. Eco 40-60",
+            "fr": "ex. Éco 40-60",
+            "de": "z. B. Eco 40-60",
+            "es": "p. ej. Eco 40-60"
+          }
+        },
+        {
+          "key": "delay_minutes",
+          "type": "number",
+          "label": {
+            "en": "Start delay (minutes)",
+            "fr": "Départ différé (minutes)",
+            "de": "Startverzögerung (Minuten)",
+            "es": "Inicio diferido (minutos)"
+          },
+          "min": 0,
+          "max": 1440
+        }
+      ],
+      "outputs": [
+        {
+          "key": "success",
+          "type": "boolean",
+          "label": { "en": "Started", "fr": "Démarré", "de": "Gestartet", "es": "Iniciado" }
+        },
+        {
+          "key": "reason",
+          "type": "string",
+          "label": {
+            "en": "Reason of a refusal",
+            "fr": "Raison d'un refus",
+            "de": "Grund einer Ablehnung",
+            "es": "Motivo del rechazo"
+          }
+        }
+      ]
+    },
+    {
+      "key": "control_appliance",
+      "label": {
+        "en": "Control an appliance",
+        "fr": "Piloter un appareil",
+        "de": "Gerät steuern",
+        "es": "Controlar un aparato"
+      },
+      "description": {
+        "en": "Start, pause, resume, switch on or switch off a HomeWhiz appliance.",
+        "fr": "Démarre, met en pause, reprend, allume ou éteint un appareil HomeWhiz.",
+        "de": "Startet, pausiert, setzt fort, schaltet ein oder aus ein HomeWhiz-Gerät.",
+        "es": "Inicia, pausa, reanuda, enciende o apaga un aparato HomeWhiz."
+      },
+      "timeout_seconds": 30,
+      "fields": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": { "en": "Appliance", "fr": "Appareil", "de": "Gerät", "es": "Aparato" },
+          "required": true
+        },
+        {
+          "key": "command",
+          "type": "select",
+          "label": { "en": "Command", "fr": "Commande", "de": "Befehl", "es": "Orden" },
+          "required": true,
+          "options": [
+            {
+              "value": "start",
+              "label": { "en": "Start", "fr": "Démarrer", "de": "Starten", "es": "Iniciar" }
+            },
+            {
+              "value": "pause",
+              "label": { "en": "Pause", "fr": "Mettre en pause", "de": "Pausieren", "es": "Pausar" }
+            },
+            {
+              "value": "resume",
+              "label": { "en": "Resume", "fr": "Reprendre", "de": "Fortsetzen", "es": "Reanudar" }
+            },
+            {
+              "value": "power_on",
+              "label": { "en": "Switch on", "fr": "Allumer", "de": "Einschalten", "es": "Encender" }
+            },
+            {
+              "value": "power_off",
+              "label": { "en": "Switch off", "fr": "Éteindre", "de": "Ausschalten", "es": "Apagar" }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "key": "success",
+          "type": "boolean",
+          "label": { "en": "Done", "fr": "Effectué", "de": "Ausgeführt", "es": "Hecho" }
+        },
+        {
+          "key": "reason",
+          "type": "string",
+          "label": {
+            "en": "Reason of a refusal",
+            "fr": "Raison d'un refus",
+            "de": "Grund einer Ablehnung",
+            "es": "Motivo del rechazo"
+          }
+        }
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "key": "appliances_overview",
+      "label": {
+        "en": "Household appliances",
+        "fr": "Électroménager",
+        "de": "Haushaltsgeräte",
+        "es": "Electrodomésticos"
+      },
+      "description": {
+        "en": "Every HomeWhiz appliance at a glance: state, program, time left, warnings.",
+        "fr": "Tous les appareils HomeWhiz d'un coup d'œil : état, programme, temps restant, alertes.",
+        "de": "Alle HomeWhiz-Geräte auf einen Blick: Zustand, Programm, Restzeit, Warnungen.",
+        "es": "Todos los aparatos HomeWhiz de un vistazo: estado, programa, tiempo restante, avisos."
+      },
+      "icon": "grid"
+    },
+    {
+      "key": "appliance_status",
+      "label": {
+        "en": "Appliance cycle",
+        "fr": "Cycle d'un appareil",
+        "de": "Gerätezyklus",
+        "es": "Ciclo de un aparato"
+      },
+      "description": {
+        "en": "One appliance: time left, progress, details and start, pause and off buttons.",
+        "fr": "Un appareil : temps restant, progression, détails et boutons démarrer, pause, éteindre.",
+        "de": "Ein Gerät: Restzeit, Fortschritt, Details und Tasten Start, Pause, Aus.",
+        "es": "Un aparato: tiempo restante, progreso, detalles y botones iniciar, pausa, apagar."
+      },
+      "icon": "clock",
+      "action_timeout_seconds": 30,
+      "settings": [
+        {
+          "key": "device",
+          "type": "select",
+          "source": "devices",
+          "label": { "en": "Appliance", "fr": "Appareil", "de": "Gerät", "es": "Aparato" },
+          "required": true
+        }
+      ]
+    }
+  ]
+}
